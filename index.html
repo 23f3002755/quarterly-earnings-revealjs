@@ -2,49 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="author" content="23f3002755@ds.study.iitm.ac.in" />
     <title>Quarterly Earnings – RevealJS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="23f3002755@ds.study.iitm.ac.in" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
 
     <style>
-      .reveal .footer {
-        position: fixed; left: 0; right: 0; bottom: 10px;
-        text-align: center; font-size: 14px; opacity: 0.7;
-      }
-      .contact-pill {
-        display: inline-block; padding: 6px 12px; border-radius: 999px;
-        background: #f2f4f7; border: 1px solid #e5e7eb; color: #111827;
-        font-size: 14px;
-      }
-      .kpi { display: inline-block; min-width: 180px; padding: 14px 16px; margin: 8px; border-radius: 12px; background: #f8fafc; border: 1px solid #e5e7eb; }
-      .kpi .num { font-size: 36px; font-weight: 700; }
+      .reveal .footer{position:fixed;left:0;right:0;bottom:10px;text-align:center;font-size:14px;opacity:.8}
+      .contact-pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#f2f4f7;border:1px solid #e5e7eb;color:#111827}
+      .kpi{display:inline-block;min-width:180px;padding:14px 16px;margin:8px;border-radius:12px;background:#f8fafc;border:1px solid #e5e7eb}
+      .kpi .num{font-size:36px;font-weight:700}
     </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
 
-        <!-- Title -->
-        <section data-background-color="#0b1e2d" class="has-dark-background">
+        <!-- Title (Email clearly visible) -->
+        <section id="title" data-background-color="#0b1e2d" class="has-dark-background">
           <h2 style="color:#fff;margin-bottom:12px;">Quarterly Earnings Report</h2>
-          <p id="presenter-email">Email: <a href="mailto:23f3002755@ds.study.iitm.ac.in">23f3002755@ds.study.iitm.ac.in</a></p>
           <p style="color:#a5b4fc;">Interactive presentation (RevealJS)</p>
-          <div style="margin-top:28px;">
-            <span class="contact-pill">Contact: 23f3002755@ds.study.iitm.ac.in</span>
-          </div>
-          <aside class="notes">
-            Welcome stakeholders. Press ‘S’ to view these speaker notes. Use →/← to navigate.
-          </aside>
+          <p id="presenter-email" style="margin-top:28px;">
+            <span class="contact-pill">Email: <a href="mailto:23f3002755@ds.study.iitm.ac.in">23f3002755@ds.study.iitm.ac.in</a></span>
+          </p>
+          <aside class="notes">Welcome stakeholders. Press ‘S’ for speaker notes. Use →/← to navigate.</aside>
         </section>
-        <section id="contact"> <h2>Contact</h2> <p>Email: <a href="mailto:23f3002755@ds.study.iitm.ac.in">23f3002755@ds.study.iitm.ac.in</a></p> </section>
+
         <!-- Markdown slide -->
-        <section data-markdown>
+        <section id="markdown-slide" data-markdown>
           <textarea data-template>
-## Executive Highlights
+## Executive Highlights (Markdown)
 
 - Revenue growth YoY
 - Margin expansion
@@ -55,37 +45,26 @@ Press `O` for overview • Press `?` for help
         </section>
 
         <!-- Animated fragments -->
-        <section>
+        <section id="fragments-slide">
           <h2>Roadmap</h2>
           <ul>
             <li class="fragment">Expand product lines</li>
             <li class="fragment">Optimize OPEX</li>
             <li class="fragment fade-up">Invest in AI analytics</li>
           </ul>
-          <aside class="notes">
-            Each bullet appears step-by-step via fragments; use next to reveal.
-          </aside>
+          <aside class="notes">Each bullet appears step-by-step using fragments.</aside>
         </section>
 
         <!-- KPI blocks + fragments -->
-        <section>
+        <section id="kpis">
           <h2>Key Metrics</h2>
-          <div class="kpi fragment">
-            <div class="label">Revenue</div>
-            <div class="num">$1.2B</div>
-          </div>
-          <div class="kpi fragment">
-            <div class="label">EPS</div>
-            <div class="num">$2.35</div>
-          </div>
-          <div class="kpi fragment">
-            <div class="label">Cash</div>
-            <div class="num">$520M</div>
-          </div>
+          <div class="kpi fragment"><div class="label">Revenue</div><div class="num">$1.2B</div></div>
+          <div class="kpi fragment"><div class="label">EPS</div><div class="num">$2.35</div></div>
+          <div class="kpi fragment"><div class="label">Cash</div><div class="num">$520M</div></div>
         </section>
 
         <!-- Code with syntax highlighting + line numbers -->
-        <section>
+        <section id="code-slide">
           <h2>Analysis Code</h2>
           <pre><code class="language-python" data-line-numbers="1-2|4-7">
 import pandas as pd
@@ -96,41 +75,46 @@ df['QoQ'] = df['revenue'].pct_change()
 df['YoY'] = df['revenue'].pct_change(4)
 df[['revenue','QoQ','YoY']].tail()
           </code></pre>
-          <aside class="notes">
-            Highlight plugin adds coloring; data-line-numbers animates focus ranges.
-          </aside>
+          <aside class="notes">Highlight plugin colors code; data-line-numbers animates focus lines.</aside>
         </section>
 
-        <!-- Math (financial formula) -->
-        <section>
-          <h2>Discounted Cash Flow</h2>
-          <p>
-            ```math
-
-              \text{NPV}=\sum_{t=1}^{T}\frac{CF_t}{(1+r)^t}
-            ```
-          </p>
-          <aside class="notes">
-            Math rendered via MathJax (Reveal Math plugin). Adjust r and CF assumptions as needed.
-          </aside>
+        <!-- Math equations (financial formulas) -->
+        <section id="math-slide">
+          <h2>Financial Math</h2>
+          <p>Net Present Value (NPV)</p>
+          <p>$$ \mathrm{NPV}=\sum_{t=1}^{T}\frac{CF_t}{(1+r)^t} $$</p>
+          <p>CAPM Expected Return</p>
+          <p>$$ E[R_i] = R_f + \beta_i \big( E[R_m] - R_f \big) $$</p>
+          <p>Compound Annual Growth Rate (CAGR)</p>
+          <p>$$ \mathrm{CAGR}=\left(\frac{V_f}{V_0}\right)^{1/n}-1 $$</p>
+          <aside class="notes">Explain assumptions: discount rate r, cash flows CF_t, market risk, time horizon n.</aside>
         </section>
 
         <!-- Speaker notes example -->
-        <section>
+        <section id="guidance">
           <h2>Guidance</h2>
           <p>Full-year guidance updated to reflect macro conditions.</p>
-          <aside class="notes">
-            Mention the sensitivity analysis and scenarios before taking questions.
-          </aside>
+          <aside class="notes">Mention sensitivity analysis before Q&A.</aside>
         </section>
 
-        <!-- Footer -->
-        <section>
+        <!-- Contact slide (email again) -->
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:23f3002755@ds.study.iitm.ac.in">23f3002755@ds.study.iitm.ac.in</a></p>
+          <aside class="notes">Provide follow-up channels if needed.</aside>
+        </section>
+
+        <!-- Thank you -->
+        <section id="thanks">
           <h2>Thank You</h2>
           <p>Questions? Email: <strong>23f3002755@ds.study.iitm.ac.in</strong></p>
         </section>
       </div>
-      <div class="footer"> <span>Press S for notes • F fullscreen • O overview</span> • <span>Email: <a href="mailto:23f3002755@ds.study.iitm.ac.in">23f3002755@ds.study.iitm.ac.in</a></span> </div>
+
+      <div class="footer">
+        <span>Press S for notes • F fullscreen • O overview</span> •
+        <span>Email: <a href="mailto:23f3002755@ds.study.iitm.ac.in">23f3002755@ds.study.iitm.ac.in</a></span>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
@@ -146,6 +130,7 @@ df[['revenue','QoQ','YoY']].tail()
         margin: 0.05,
         controls: true,
         progress: true,
+        history: true,
         transition: 'slide',
         plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
         math: {
