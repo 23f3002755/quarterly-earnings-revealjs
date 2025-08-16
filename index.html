@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Quarterly Earnings – RevealJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
+
+    <style>
+      .reveal .footer {
+        position: fixed; left: 0; right: 0; bottom: 10px;
+        text-align: center; font-size: 14px; opacity: 0.7;
+      }
+      .contact-pill {
+        display: inline-block; padding: 6px 12px; border-radius: 999px;
+        background: #f2f4f7; border: 1px solid #e5e7eb; color: #111827;
+        font-size: 14px;
+      }
+      .kpi { display: inline-block; min-width: 180px; padding: 14px 16px; margin: 8px; border-radius: 12px; background: #f8fafc; border: 1px solid #e5e7eb; }
+      .kpi .num { font-size: 36px; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Title -->
+        <section data-background-color="#0b1e2d" class="has-dark-background">
+          <h2 style="color:#fff;margin-bottom:12px;">Quarterly Earnings Report</h2>
+          <p style="color:#a5b4fc;">Interactive presentation (RevealJS)</p>
+          <div style="margin-top:28px;">
+            <span class="contact-pill">Contact: 23f3002755@ds.study.iitm.ac.in</span>
+          </div>
+          <aside class="notes">
+            Welcome stakeholders. Press ‘S’ to view these speaker notes. Use →/← to navigate.
+          </aside>
+        </section>
+
+        <!-- Markdown slide -->
+        <section data-markdown>
+          <textarea data-template>
+## Executive Highlights
+
+- Revenue growth YoY
+- Margin expansion
+- Updated guidance
+
+Press `O` for overview • Press `?` for help
+          </textarea>
+        </section>
+
+        <!-- Animated fragments -->
+        <section>
+          <h2>Roadmap</h2>
+          <ul>
+            <li class="fragment">Expand product lines</li>
+            <li class="fragment">Optimize OPEX</li>
+            <li class="fragment fade-up">Invest in AI analytics</li>
+          </ul>
+          <aside class="notes">
+            Each bullet appears step-by-step via fragments; use next to reveal.
+          </aside>
+        </section>
+
+        <!-- KPI blocks + fragments -->
+        <section>
+          <h2>Key Metrics</h2>
+          <div class="kpi fragment">
+            <div class="label">Revenue</div>
+            <div class="num">$1.2B</div>
+          </div>
+          <div class="kpi fragment">
+            <div class="label">EPS</div>
+            <div class="num">$2.35</div>
+          </div>
+          <div class="kpi fragment">
+            <div class="label">Cash</div>
+            <div class="num">$520M</div>
+          </div>
+        </section>
+
+        <!-- Code with syntax highlighting + line numbers -->
+        <section>
+          <h2>Analysis Code</h2>
+          <pre><code class="language-python" data-line-numbers="1-2|4-7">
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('earnings.csv')
+df['QoQ'] = df['revenue'].pct_change()
+df['YoY'] = df['revenue'].pct_change(4)
+df[['revenue','QoQ','YoY']].tail()
+          </code></pre>
+          <aside class="notes">
+            Highlight plugin adds coloring; data-line-numbers animates focus ranges.
+          </aside>
+        </section>
+
+        <!-- Math (financial formula) -->
+        <section>
+          <h2>Discounted Cash Flow</h2>
+          <p>
+            ```math
+
+              \text{NPV}=\sum_{t=1}^{T}\frac{CF_t}{(1+r)^t}
+            ```
+          </p>
+          <aside class="notes">
+            Math rendered via MathJax (Reveal Math plugin). Adjust r and CF assumptions as needed.
+          </aside>
+        </section>
+
+        <!-- Speaker notes example -->
+        <section>
+          <h2>Guidance</h2>
+          <p>Full-year guidance updated to reflect macro conditions.</p>
+          <aside class="notes">
+            Mention the sensitivity analysis and scenarios before taking questions.
+          </aside>
+        </section>
+
+        <!-- Footer -->
+        <section>
+          <h2>Thank You</h2>
+          <p>Questions? Email: <strong>23f3002755@ds.study.iitm.ac.in</strong></p>
+        </section>
+      </div>
+      <div class="footer">Press S for speaker notes • F fullscreen • O overview</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        width: 1280,
+        height: 720,
+        margin: 0.05,
+        controls: true,
+        progress: true,
+        transition: 'slide',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+        }
+      });
+    </script>
+  </body>
+</html>
